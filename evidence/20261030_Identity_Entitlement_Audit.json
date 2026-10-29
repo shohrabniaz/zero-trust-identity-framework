@@ -1,0 +1,62 @@
+{
+  "Organisation": "Southern Ledger Partners (fictional regional accounting firm)",
+  "Mode": "Synthetic",
+  "CollectedUtc": "2026-10-30T00:00:00Z",
+  "StaffModelled": 40,
+  "Offices": [
+    "Adelaide CBD",
+    "Regional North",
+    "Regional South"
+  ],
+  "IdentityFindings": [
+    {
+      "Id": "ID-01",
+      "Finding": "Shared legacy SaaS logins for practice-management style tools",
+      "Risk": "Critical",
+      "UsersAffected": 8,
+      "Notes": "No individual accountability; password reuse likely"
+    },
+    {
+      "Id": "ID-02",
+      "Finding": "Standing Global Admin overlap with daily mailboxes",
+      "Risk": "High",
+      "UsersAffected": 3,
+      "Notes": "No separate admin UPNs; no JIT"
+    },
+    {
+      "Id": "ID-03",
+      "Finding": "MFA inconsistent for remote staff",
+      "Risk": "High",
+      "UsersAffected": 18,
+      "Notes": "Security defaults not verified; no CA"
+    },
+    {
+      "Id": "ID-04",
+      "Finding": "Guest accountants / contractors without expiry",
+      "Risk": "Medium",
+      "UsersAffected": 6,
+      "Notes": "No access review cadence"
+    },
+    {
+      "Id": "ID-05",
+      "Finding": "Flat file-share access across offices",
+      "Risk": "High",
+      "UsersAffected": 40,
+      "Notes": "Entitlements informal; leavers rarely removed promptly"
+    },
+    {
+      "Id": "ID-06",
+      "Finding": "Unmanaged BYOD accessing M365 from home",
+      "Risk": "Medium",
+      "UsersAffected": 22,
+      "Notes": "No device compliance signal on Free tier"
+    }
+  ],
+  "EntitlementHotspots": [
+    "Tax working papers library \u2014 all seniors Full Control",
+    "Payroll folder \u2014 two admins + one shared mailbox delegate",
+    "Practice SaaS \u2014 shared 'office' account"
+  ],
+  "PrePilotRiskIndex": 72,
+  "RiskIndexMethod": "Weighted count of Critical=25, High=15, Medium=8, Low=3 then scaled 0-100 (synthetic)"
+}
