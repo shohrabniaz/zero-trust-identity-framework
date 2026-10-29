@@ -319,37 +319,56 @@ def build_report(data):
         ),
         (
             "3. Current-state findings",
-            "Critical and High issues dominate: shared SaaS logins, daily Global Admin use, "
-            "inconsistent MFA, flat file entitlements, and unmanaged BYOD. Guests lack expiry "
-            "reviews. These are process and identity-hygiene failures first — licence gaps second.",
+            "Critical and High issues dominate the synthetic audit: shared SaaS logins for "
+            "legacy practice tools, daily Global Admin use on ordinary mailboxes, inconsistent "
+            "MFA for remote staff, flat file entitlements across offices, and unmanaged BYOD "
+            "reaching Microsoft 365 from home networks. Guests and contractors lack expiry "
+            "reviews. The pre-pilot risk index of 72/100 reflects that mix. Importantly, several "
+            "of the worst findings are process failures — shared passwords, informal grants, "
+            "slow leavers — that Phase 0 can cut without buying Conditional Access. Licence "
+            "gaps (no device compliance signal, no risk-based CA) are real, but they should "
+            "not excuse leaving shared accounts in place.",
         ),
         (
             "4. Reference architecture",
-            "Unique identities feed Entra ID. A policy engine starts as Security defaults / MFA "
-            "(Phase 0) and grows into Conditional Access (Phase 1). Admin plane uses separate "
-            "UPNs, break-glass, and time-boxed elevation. Device compliance arrives with Intune "
-            "in Phase 1. Accounting SaaS moves to SSO where possible. Telemetry is sign-in logs "
-            "and Secure Score; Identity Protection is Phase 1+ only.",
+            "Unique human identities feed Entra ID; shared SaaS passwords are retired. A "
+            "policy engine starts as Security defaults or equivalent MFA (Phase 0) and grows "
+            "into Conditional Access (Phase 1). The admin plane uses separate UPNs, two "
+            "monitored break-glass accounts, and time-boxed elevation rather than standing "
+            "privilege. Device compliance arrives with Intune in Phase 1 for admin and "
+            "tax-library paths. Accounting SaaS moves to SSO or individual named accounts. "
+            "Telemetry is sign-in logs and Secure Score tracking; Identity Protection remains "
+            "Phase 1+ when P2 budget exists. The policy IDs (P0-* and P1-*) are written so "
+            "an implementer can tick them without inventing Free-tier portal screenshots.",
         ),
         (
             "5. Roadmap and cost",
-            "Phase 0 is staff time only. Phase 1 indicative licence uplift is about AUD $10–25 "
-            "per user per month depending on current SKU, plus integration effort. Pilot one "
-            "office first. Costs are indicative and must be confirmed against Microsoft pricing "
-            "at purchase time — they are not quotes.",
+            "Phase 0 (0–6 weeks, one office) is staff time only — roughly 40–60 engineer "
+            "hours for inventory, MFA, admin split, guest lockdown, and shared-account "
+            "retirement. Phase 1 (6–16 weeks) adds Business Premium or Entra ID P1 plus "
+            "Intune for the pilot cohort; indicative licence uplift is about AUD $10–25 per "
+            "user per month depending on the current SKU, plus 80–120 integration hours. "
+            "Phase 2 rolls remaining offices and optional Identity Protection. All dollar "
+            "figures are indicative planning bands and must be confirmed against Microsoft "
+            "pricing at purchase time; they are not vendor quotes.",
         ),
         (
             "6. Evaluation",
-            "Success is MFA coverage at 100% of interactive users, zero shared SaaS accounts, "
-            "zero daily-UPN Global Admins, guests on a review cycle, risk index ≤35, and "
-            "contained helpdesk friction. User feedback gates aggressive CA grants.",
+            "Pilot success is defined in the workbook: MFA coverage at 100% of interactive "
+            "users, zero shared SaaS accounts, zero daily-UPN Global Admins, guests on a "
+            "review cycle, identity risk index ≤35, and contained helpdesk friction in the "
+            "first two weeks. Short user feedback gates how aggressively Phase 1 Conditional "
+            "Access is tightened. Measuring friction matters because a small accounting "
+            "workforce will bypass controls that block tax lodgement deadlines.",
         ),
         (
             "7. Conclusion",
-            "Zero trust for this SME starts with identity hygiene and MFA, not a shopping list "
-            "of every Entra add-on. A phased, Free-tier-honest design lets the firm show partners "
-            "and insurers a credible plan while funding Conditional Access for the office that "
-            "handles the most sensitive tax data first.",
+            "Zero trust for this SME starts with identity hygiene and MFA, not a shopping "
+            "list of every Entra add-on. A phased, Free-tier-honest design lets the firm show "
+            "partners, insurers, and the Tax Practitioners Board a credible plan while funding "
+            "Conditional Access first for the office that handles the most sensitive tax data. "
+            "The next practical step is a live identity export on a laboratory tenant when "
+            "Graph access is available, then a re-score of the same metrics.",
         ),
         (
             "References",
